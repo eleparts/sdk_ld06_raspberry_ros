@@ -51,7 +51,7 @@ echo "$SOURCE" | sudo tee /etc/apt/sources.list > /dev/null
 echo "STEP1: Install Dependencies and Download ROS source packages"
 
 # Where will the output go?
-WORK_DIR="/home/pi/ros_catkin_ws"
+WORK_DIR="/home/$USER/testdir"
 
 BUILD_DEPS="build-essential cmake"
 PYTHON_DEPS="python-rosdep python-rosinstall-generator python-wstool python-rosinstall"
@@ -63,8 +63,9 @@ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31
 sudo apt update
 sudo apt install -y $BUILD_DEPS $PYTHON_DEPS
 pwd
-echo "Press space bar to continue"
-read -r -s -d ' '
+#echo "Press space bar to continue"
+#read -r -s -d ' '
+echo "Auto continue"
 
 echo "STEP2: Initialising ROS"
 if [ ! -f /etc/ros/rosdep/sources.list.d/20-default.list ]; then
@@ -72,8 +73,9 @@ if [ ! -f /etc/ros/rosdep/sources.list.d/20-default.list ]; then
 fi
 rosdep update
 pwd
-echo "Press space bar to continue"
-read -r -s -d ' '
+#echo "Press space bar to continue"
+#read -r -s -d ' '
+echo "Auto continue"
 
 echo "STEP3: Install Melodic Desktop"
 if [ ! -d "$WORK_DIR" ]; then
@@ -89,8 +91,9 @@ else
     wstool update -j4 -t src
 fi
 pwd
-echo "Press space bar to continue"
-read -r -s -d ' '
+#echo "Press space bar to continue"
+#read -r -s -d ' '
+echo "Auto continue"
 
 echo "STEP4: Fix the Issues"
 # Install compatible version of Assimp (Open Asset Import Library) to fix collada_urdf dependency problem.
@@ -107,30 +110,34 @@ cmake .
 make
 sudo make install
 pwd
-echo "Press space bar to continue"
-read -r -s -d ' '
+#echo "Press space bar to continue"
+#read -r -s -d ' '
+echo "Auto continue"
 
 echo "Install OGRE for rviz"
 sudo apt install -y libogre-1.9-dev
 pwd
-echo "Press space bar to continue"
-read -r -s -d ' '
+#echo "Press space bar to continue"
+#read -r -s -d ' '
+echo "Auto continue"
 
 cd $WORK_DIR
 
 echo "Install other deps using rosdep"
 rosdep install -y --from-paths src --ignore-src --rosdistro melodic -r --os=debian:buster
 pwd
-echo "Press space bar to continue"
-read -r -s -d ' '
+#echo "Press space bar to continue"
+#read -r -s -d ' '
+echo "Auto continue"
 
 echo "STEP5: Build and Source the Installation"
 cd $WORK_DIR
 
 sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2
 pwd
-echo "Press space bar to continue"
-read -r -s -d ' '
+#echo "Press space bar to continue"
+#read -r -s -d ' '
+echo "Auto continue"
 
 echo "Update bashrc"
 if ! grep -xq 'source /opt/ros/melodic/setup.bash' ~/.bashrc; then
