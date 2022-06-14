@@ -6,7 +6,7 @@
 
 [엘레파츠- 라이다 센서 제품 페이지](https://www.eleparts.co.kr/EPXXCNHL)  
 
-[(참조) 네이버 블로그 포스팅](https://blog.naver.com/elepartsblog/222596017902)  
+[(네이버 블로그 포스팅) DTOF LD06 라이다 센서 데이터 2D 시각화 예제 설치&실행하기](https://blog.naver.com/elepartsblog/222596017902)  
 
 [설치 가이드(OKdo) pdf 파일](https://github.com/eleparts/sdk_ld06_raspberry_ros/blob/main/doc/OKdo-Lidar-get-started-update.pdf)  
 
@@ -17,7 +17,6 @@
 ### OKdo 설치 가이드 파일의 간략 설명입니다. 자세한 부분은 네이버 블로그를 참고해 주세요  
 
 ```bash
-
 # 설치 파일&스크립트 clone로 다운로드
 git clone https://github.com/eleparts/sdk_ld06_raspberry_ros.git
 
@@ -26,9 +25,9 @@ cd sdk_ld06_raspberry_ros
 ./lidar_ros_setup.sh
 ```
 
-위 스크립트 실행 시 설치에 약 2시간 15분 정도의 시간이 소요됩니다.  
+스크립트 실행 후 설치에 약 **2시간 15분 정도의 시간이 소요**됩니다.  
 
-설치가 완료되면 재부팅 해 주고 아래 명령어로 설치가 잘 되었는지 확인해 줍니다.  
+> 설치가 완료되면 재부팅 해 주고 설치가 되었는지 확인해 줍니다.  
 
 ```bash
 # 재부팅
@@ -36,5 +35,17 @@ sudo reboot
 
 # 설치 성공 여부 확인
 roscore
-```
+```  
 
+> [Raspberry Pi Configuration]을 열고 Serial Port를 Enable 해 준 뒤 라이다 센서를 연결해 줍니다.  
+![Raspberry_Pi_Configuration](./img/1.Raspberry_Pi_Configuration.png)  
+![lidar_GPIO](./img/2.lidar_GPIO.png)  
+
+```bash  
+# 추가 설치 스크립트 실행
+cd sdk_ld06_raspberry_ros 
+./lidar_driver_setup.s
+  
+# 재부팅
+sudo reboot
+```  
