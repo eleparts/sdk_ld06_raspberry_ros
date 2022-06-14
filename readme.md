@@ -70,7 +70,7 @@ rosrun rviz rviz
 
 > [File] -> [Open Config] 창에서 **rviz**디렉토리의 ldlidar.rviz 파일을 열어 줍니다.  
 >  
->![ldlidar_rviz_OPEN](./img/3.ldlidar_rviz.png.png)  
+>![ldlidar_rviz_OPEN](./img/3.ldlidar_rviz.png)  
   
 ## 동작 확인
   
