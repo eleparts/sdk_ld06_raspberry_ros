@@ -52,7 +52,9 @@ cd sdk_ld06_raspberry_ros
   
 # 재부팅  
 sudo reboot  
-```  
+```
+  
+※ importlib_metadata 오류 발생 시 ```sudo pip install importlib-metadata```를 설치해 주세요  
   
 ## 설치 확인 및 프로그램 구동  
   
